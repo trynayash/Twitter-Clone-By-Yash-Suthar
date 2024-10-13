@@ -12,16 +12,6 @@ Made using the python framework Flask, this is a frontend + backend clone of twi
 
 Have tried to keep the UI as similiar as that of Twitter. Is not mobile responsive yet so is better to view it in landscape on laptop or desktop. The reason this hasn't been done yet is that this project's primary purpose was not to create a fronend site but rather create a fully functional generic social media website
 
-![login page](Extra/Images/login_page.png)
-Welcome login/signup page
-
-![home page](Extra/Images/home_page_1.png)
-![home page](Extra/Images/home_page_2.png)
-Home page
-
-![user page](Extra/Images/user_page.png)
-User account page
-
 ## Database Schema
 
 According to the current functionalities there are 5 tables in the schema. The User has all the info on the user, the Post links the creted posts to their author as:
