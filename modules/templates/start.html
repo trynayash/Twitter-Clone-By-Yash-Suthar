@@ -1,0 +1,87 @@
+<!-- templates/start.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter | Start</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/start.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://img.icons8.com/fluent/48/000000/twitter.png"/>
+</head>
+<body>
+    <div class="image-bg">
+        <div class="about">
+            <ul>
+                <li><img class="icons" src="https://image.flaticon.com/icons/svg/3176/3176330.svg" alt=""> Follow your interest</li>
+                <li><img src="https://image.flaticon.com/icons/svg/615/615075.svg" alt="" class="icons">Hear what people are talking about</li>
+                <li><img src="https://image.flaticon.com/icons/svg/3094/3094824.svg" alt="" class="icons">Join the conversation</li>
+            </ul>
+        </div>
+    </div>
+    <div class="user-bg">
+        <div class="container">
+            <img src="https://image.flaticon.com/icons/svg/733/733579.svg" class="twitter" alt="">
+            <div class="intro">See what's happening in <br> the world right now</div><br><br>
+            <p class="join-twitter">Join Twitter today</p>
+            
+            <!-- Signup Form -->
+            <form action="{{ url_for('signup') }}" class="form-group" method="post">
+                {{ form1.csrf_token }}
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        {{ form1.username(class='form_control', placeholder='Username', id='signup_username') }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form1.email(class='form_control', placeholder='Email', id='signup_email') }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form1.password(class='form_control', placeholder='Password', id='signup_password') }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form1.signup(class='form_signup') }}
+                </div>
+            </form>
+
+            <!-- Login Trigger -->
+            <p class="already-account">
+                Already have an account? 
+                <label for="sidebar-toggle" class="btn btn-info btn-lg login-button">Login</label>
+            </p>
+
+            <!-- Login Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Welcome back!</h4>
+                            <label for="sidebar-toggle" class="close">&times;</label>
+                        </div>
+                        <div class="modal-body">
+                            <p>It's great seeing you again!</p><br>
+                            
+                            <!-- Login Form -->
+                            <form action="{{ url_for('login') }}" class="form-group" method="post">
+                                {{ form2.csrf_token }}
+                                <div class="form-group">
+                                    {{ form2.username(class='login_control', placeholder='Username', id='login_username') }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form2.password(class='login_control', placeholder='Password', id='login_password') }}
+                                </div>
+                                <p class="remember-me">
+                                    {{ form2.remember() }} Remember me
+                                </p>
+                                <div class="form-group">
+                                    {{ form2.login(class='login_btn') }}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+/* Main styling for sidebar */
+.sidebar {
+    height: 100%;
+    width: 250px; /* Default sidebar width */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    padding-top: 20px;
+    transition: width 0.3s ease;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+}
+
+.sidebar ul li img {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    object-fit: contain; /* Ensure icons stay in their size */
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.sidebar ul li a:hover {
+    color: #f1f1f1;
+}
+
+/* Twitter logo specific style */
+.sidebar ul li.logo {
+    padding: 30px 15px; /* Add more padding for logo */
+}
+
+/* For smaller screens, collapse sidebar */
+.sidebar.collapsed {
+    width: 60px; /* Collapsed width */
+}
+
+.sidebar.collapsed ul li {
+    justify-content: center;
+}
+
+.sidebar.collapsed ul li img {
+    margin-right: 0;
+}
+
+.sidebar.collapsed ul li a {
+    display: none; /* Hide text in collapsed state */
+}
+
+/* Button for opening the collapsed sidebar */
+.openbtn {
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+/* Main content styling */
+.posts {
+    margin-left: 260px; /* Default margin for the main content */
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+/* When sidebar is collapsed, adjust the content margin */
+.sidebar.collapsed ~ .posts {
+    margin-left: 70px; /* Reduced margin for collapsed sidebar */
+}
+
+/* Responsive styling for smaller screens */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        padding-top: 20px;
+    }
+
+    .posts {
+        margin-left: 0;
+    }
+
+    .openbtn {
+        left: 0;
+    }
+}

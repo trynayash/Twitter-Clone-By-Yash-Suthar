@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='Images/SVG/twitter.svg') }}">
+    
+    <!-- Include W3CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+
+    <!-- Bootstrap and jQuery -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="mySidebar">
+            <ul>
+                <!-- Twitter logo -->
+                <li class="logo">
+                    <img src="{{ url_for('static', filename='Images/SVG/twitter.svg') }}" alt="Twitter Logo" style="width: 50px; height: auto;">
+                </li>
+                <li>
+                    <img src="{{ url_for('static', filename='Images/SVG/user.svg') }}" alt="Profile">
+                    <a href="{{ url_for('account') }}">Profile</a>
+                </li>
+                <li>
+                    <img src="{{ url_for('static', filename='Images/SVG/home.svg') }}" alt="Home">
+                    <a href="{{ url_for('dashboard') }}">Home</a>
+                </li>
+                <li>
+                    <img src="{{ url_for('static', filename='Images/SVG/logout.svg') }}" alt="Logout">
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                </li>
+                <li>
+                    <img src="{{ url_for('static', filename='Images/SVG/saved_posts.svg') }}" alt="Saved">
+                    <a href="{{ url_for('bookmarks') }}">Saved</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Collapsible Menu Button -->
+        <button class="openbtn" onclick="toggleSidebar()">☰ Menu</button>
+
+        <!-- Main Content Section -->
+        <div class="posts">
+            {% block pageContent %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- JavaScript for Sidebar Toggle -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mySidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+    </script>
+
+</body>
+</html>
